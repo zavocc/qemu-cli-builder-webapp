@@ -27,7 +27,7 @@ In this phase, it focuses more on core application implementation and structurin
     Status: Currently, runes works at each components, and it does persist because of directives like `bind:value`, but I'm still working on centralization and parsing when export button is clicked, maybe export button, maybe default values? But, fuck, none of these centralization stuff is implemented but it kept the state when user twiddling with buttons I guess.
 - [ ] STEP 2: Make export button work after working with STEP 1
 
-But the goal here is to make export button work and centralize states, starting with parsing machine/CPU/memory/accel through `Main.svelte`
+But the goal here is to make export button work and centralize states, starting with parsing `Main.svelte` runes into script with export button.
 
 # Phase 1 - Adding more configs
 TBA
