@@ -18,7 +18,7 @@
 <!-- Check if we have tb_size_toggle set to true -->
 {#if tb_size_toggle}
     <div class="flex flex-row space-x-4">
-        <label for="tb_size">TB Size (MB)</label>
+        <label for="tb_size">TB Size</label>
         <input 
             type="number" 
             id="tb_size" 
