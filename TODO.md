@@ -24,10 +24,19 @@ In this phase, it focuses more on core application implementation and structurin
 - [X] Setting up the main page for users to interact with
 - [X] Header with export button (non-functional)
 - [ ] STEP 1: Centralized state management and parsing for each VM_Config components to command-line parameters, proper runes and directives to persist runes based on user input
-    Status: Currently, runes works at each components, and it does persist because of directives like `bind:value`, but I'm still working on centralization and parsing when export button is clicked, maybe export button, maybe default values? But, fuck, none of these centralization stuff is implemented but it kept the state when user twiddling with buttons I guess.
+    - [X] Status: Currently, state is handled inside each component and persists thanks to directives like `bind:value`. However, centralization and parsing when the export button is clicked are not implemented yet. The UI keeps state while the user interacts with the controls, but there is no central place to read everything for export.
+
+    - [ ] UPDATE (12/6/2025):  
+    Status: Implemented centralization using [Svelte stores](https://svelte.dev/docs/svelte/stores). The central store states are now located in the [stores directory](./src/lib/stores), starting with [Main](./src/lib/components/VM_Config/Main.svelte), which reads and writes values via the imported stores.
+
+    The Export button in [Header.svelte](./src/lib/components/Header.svelte) is now wired to [exportBtn's `exportConfig` function](./src/lib/exportBtn.ts). For now it’s a skeleton: clicking it logs the current store states to the console to verify that interactions in the UI correctly update the central store states.
+
+    For the `exportBtn` module, we grab all relevant store states from the stores directory and use the `get` method to read their current values. These values will be used to construct and parse the final QEMU CLI configuration.
+
+    TODO: Implement blob export and parsing into a `.sh` file once the CLI string is constructed.
 - [ ] STEP 2: Make export button work after working with STEP 1
 
-But the goal here is to make export button work and centralize states, starting with parsing `Main.svelte` runes into script with export button.
+But the goal here is to make export button work and centralize states, starting with parsing `Main.svelte` states into script with export button.
 
 # Phase 1 - Adding more configs
 TBA
