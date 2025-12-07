@@ -34,6 +34,14 @@ In this phase, it focuses more on core application implementation and structurin
     For the `exportBtn` module, we grab all relevant store states from the stores directory and use the `get` method to read their current values. These values will be used to construct and parse the final QEMU CLI configuration.
 
     TODO: Implement blob export and parsing into a `.sh` file once the CLI string is constructed.
+
+    - [x] UPDATE (12/7/2025):
+    Updated structure, now `Main.svelte` which are the options for CPU/Memory/Accel/SMP.. is now in `./src/lib/components/VM_Config/Main` and might follow the same suit for other config categories, for example... drives and disks would be in `./src/lib/components/VM_Config/Drives` (TODO)
+
+    Added new CPU option with CPU lists through [CPULists.ts](./src/lib/components/VM_Config/Main/CPULists.ts) as an exported module which is imported and iterated in [Main.svelte](./src/lib/components/VM_Config/Main/Main.svelte)
+
+    Option to manually manipulate flags coming soon.
+
 - [ ] STEP 2: Make export button work after working with STEP 1
 
 But the goal here is to make export button work and centralize states, starting with parsing `Main.svelte` states into script with export button.

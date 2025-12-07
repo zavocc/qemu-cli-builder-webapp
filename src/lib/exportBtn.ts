@@ -1,26 +1,20 @@
 import { get } from "svelte/store";
-import {
-    memory,
-    accel,
-    tcgTbSizeToggle,
-    tcgTbSize,
-    tcgMttcgToggle
-} from "./stores/configMain";
+import * as configMain from "./stores/configMain";
 
 export function exportConfig() {
-    // get() reads current store value without subscribing
-    const memoryVal = get(memory);
-    const accelVal = get(accel);
-
+    const memoryVal = get(configMain.memory);
+    const accelVal = get(configMain.accel);
     console.log("=== Export Config ===");
     console.log("Memory:", memoryVal);
     console.log("Accelerator:", accelVal);
 
     if (accelVal === "tcg") {
-        console.log("TCG tb-size enabled:", get(tcgTbSizeToggle));
-        console.log("TCG tb-size:", get(tcgTbSize));
-        console.log("TCG mttcg:", get(tcgMttcgToggle));
+        console.log("TCG tb-size enabled:", get(configMain.tcgTbSizeToggle));
+        console.log("TCG tb-size:", get(configMain.tcgTbSize));
+        console.log("TCG mttcg:", get(configMain.tcgMttcgToggle));
     }
+
+    console.log("CPU:", get(configMain.cpu));
 
     console.log("=====================");
 }
