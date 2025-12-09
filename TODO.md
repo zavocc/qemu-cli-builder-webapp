@@ -59,6 +59,9 @@ In this phase, it focuses more on core application implementation and structurin
 
 - [ ] STEP 2: Make export button work after working with STEP 1
 
+TODO OPTIONAL LAST PRIORITY NEXT STEPS:
+- [ ] Maybe componentize divs? so we don't have to copy paste div tags with the same utility classes as others if the presentation of elements is largely the same, right now it's repeating code for each component like input fields or dropdowns or checkboxes using the same div.
+
 But the goal here is to make export button work and centralize states, starting with parsing `Main.svelte` states into script with export button.
 
 # Phase 1 - Adding more configs
