@@ -1,6 +1,7 @@
 <script>
     import AcceleratorOptions_TCGOps from "./TCGOps.svelte";
-    import { memory, accel, cpu } from "../../../stores/configMain.js";
+    import SMPControl from "./SMPControl.svelte";
+    import { memory, accel, cpu, smpToggle } from "../../../stores/configMain.js";
     import { cpuLists } from "./CPULists.ts";
 
     // Reset CPU to a valid option when accelerator changes
@@ -43,4 +44,21 @@
             {/each}
         </select>
     </div>
+
+    <!-- SMP -->
+    <div class="flex flex-row space-x-4">
+    <label for="tb_size_toggle">
+        <input 
+            type="checkbox" 
+            id="tb_size_toggle"
+            bind:checked={$smpToggle}
+        />
+       Control SMP (Symmetric Multi-Processing) settings
+    </label>
+</div>
+
+{#if $smpToggle}
+    <SMPControl />
+{/if}
+
 </div>

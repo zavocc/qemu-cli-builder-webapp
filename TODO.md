@@ -29,18 +29,33 @@ In this phase, it focuses more on core application implementation and structurin
     - [ ] UPDATE (12/6/2025):  
     Status: Implemented centralization using [Svelte stores](https://svelte.dev/docs/svelte/stores). The central store states are now located in the [stores directory](./src/lib/stores), starting with [Main](./src/lib/components/VM_Config/Main.svelte), which reads and writes values via the imported stores.
 
-    The Export button in [Header.svelte](./src/lib/components/Header.svelte) is now wired to [exportBtn's `exportConfig` function](./src/lib/exportBtn.ts). For now it’s a skeleton: clicking it logs the current store states to the console to verify that interactions in the UI correctly update the central store states.
+        The Export button in [Header.svelte](./src/lib/components/Header.svelte) is now wired to [exportBtn's `exportConfig` function](./src/lib/exportBtn.ts). For now it’s a skeleton: clicking it logs the current store states to the console to verify that interactions in the UI correctly update the central store states.
 
-    For the `exportBtn` module, we grab all relevant store states from the stores directory and use the `get` method to read their current values. These values will be used to construct and parse the final QEMU CLI configuration.
+        For the `exportBtn` module, we grab all relevant store states from the stores directory and use the `get` method to read their current values. These values will be used to construct and parse the final QEMU CLI configuration.
 
-    TODO: Implement blob export and parsing into a `.sh` file once the CLI string is constructed.
+        TODO: Implement blob export and parsing into a `.sh` file once the CLI string is constructed.
 
-    - [x] UPDATE (12/7/2025):
-    Updated structure, now `Main.svelte` which are the options for CPU/Memory/Accel/SMP.. is now in `./src/lib/components/VM_Config/Main` and might follow the same suit for other config categories, for example... drives and disks would be in `./src/lib/components/VM_Config/Drives` (TODO)
+    - [x] UPDATE (12/7/2025):  
+        Updated structure, now `Main.svelte` which are the options for CPU/Memory/Accel/SMP.. is now in `./src/lib/components/VM_Config/Main` and might follow the same suit for other config categories, for example... drives and disks would be in `./src/lib/components/VM_Config/Drives` (TODO)
 
-    Added new CPU option with CPU lists through [CPULists.ts](./src/lib/components/VM_Config/Main/CPULists.ts) as an exported module which is imported and iterated in [Main.svelte](./src/lib/components/VM_Config/Main/Main.svelte)
+        Added new CPU option with CPU lists through [CPULists.ts](./src/lib/components/VM_Config/Main/CPULists.ts) as an exported module which is imported and iterated in [Main.svelte](./src/lib/components/VM_Config/Main/Main.svelte)
 
-    Option to manually manipulate flags coming soon.
+        Option to manually manipulate flags coming soon.
+
+    - [x] UPDATE (12/9/2025):  
+        Added `-smp` configuration, with options such as detailed or simplified.
+
+        New components:
+        * [SMPControl.svelte](./src/lib/components/VM_Config/Main/SMPControl.svelte) within `Main` category, provides options to control SMP.
+
+        Files changed involved with this change:
+        * [configMain.ts](./src/lib/stores/configMain.ts) - Added new default SMP configs and use of `writable()` generics to `accel` and `smpConfigType` constants to ensure strict compliance.
+        * [Main.svelte](./src/lib/components/VM_Config/Main/Main.svelte) - Adds toggle and imports `SMPControl` to check whether to expose SMP related settings or disable.
+
+        In addition, [exportBtn](./src/lib/exportBtn.ts) has been updated while still incomplete:
+        - Added new rudimentary function `constructQemuArgsMain` which so far only translates [Main](./src/lib/components/VM_Config/Main/Main.svelte) parameters from store states to actual QEMU parameters.
+        - Now shows actual QEMU flags to console
+        
 
 - [ ] STEP 2: Make export button work after working with STEP 1
 
