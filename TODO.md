@@ -57,6 +57,20 @@ In this phase, it focuses more on core application implementation and structurin
         - Now shows actual QEMU flags to console
         
 
+    - [ ] UPDATE (UNFINISHED, 12/12/2025):  
+    LLM used: Claude Opus 4.5 - prototype vibecoded, needs self-approval before hitting to master branch
+
+    Reuse `div` tags within the form using [FormRow](./src/lib/components/FormRow.svelte) which reduces code duplication
+
+    It's been used an imported in:
+    - [Main.svelte](./src/lib/components/VM_Config/Main/Main.svelte)
+    - [SMPControl.svelte](./src/lib/components/VM_Config/Main/Main.svelte)
+    - [TCGOps.svelte](./src/lib/components/VM_Config/Main/TCGOps.svelte)
+
+    Wraps within the same `<div class="flex flex-row space-x-4">` utility classes (as of 12/12/2025)
+
+    Right now it's not in master branch and may change at anytime before hitting master.
+
 - [ ] STEP 2: Make export button work after working with STEP 1
 
 TODO OPTIONAL LAST PRIORITY NEXT STEPS:

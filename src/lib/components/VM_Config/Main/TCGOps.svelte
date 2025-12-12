@@ -1,8 +1,9 @@
 <script>
+    import FormRow from "../../FormRow.svelte";
     import { tcgTbSizeToggle, tcgTbSize, tcgMttcgToggle } from "../../../stores/configMain.js";
 </script>
 
-<div class="flex flex-row space-x-4">
+<FormRow>
     <label for="tb_size_toggle">
         <input 
             type="checkbox" 
@@ -11,11 +12,11 @@
         />
         Enable Translation Block Cache setting (tb-size)
     </label>
-</div>
+</FormRow>
 
 <!-- Check if we have tb_size_toggle set to true -->
 {#if $tcgTbSizeToggle}
-    <div class="flex flex-row space-x-4">
+    <FormRow>
         <label for="tb_size">TB Size</label>
         <input 
             type="number" 
@@ -26,10 +27,10 @@
             max="2048" 
             step="128" 
         />
-    </div>
+    </FormRow>
 {/if}
 
-<div class="flex flex-row space-x-4 items-center">
+<FormRow class="items-center">
     <label for="mttcg_toggle" class="flex items-center space-x-2">
         <input 
             type="checkbox" 
@@ -56,5 +57,5 @@
             setups (e.g. ARM guest on x86 host).
         </div>
     </div>
-</div>
+</FormRow>
 
