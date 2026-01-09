@@ -57,6 +57,9 @@ In this phase, it focuses more on core application implementation and structurin
         - Now shows actual QEMU flags to console
         
 
+    - [x] UPDATE (1/9/2025):
+        For form containers specifically from [Main.svelte](./src/lib/components/VM_Config/Main/Main.svelte) [TCGOps.svelte](./src/lib/components/VM_Config/Main/TCGOps.svelte) and [SMPControl.svelte](./src/lib/components/VM_Config/Main/SMPControl.svelte) instead of repeatedly specifying same utility classes in each div container specifically `flex flex-row space-x-4` which introduces DRY code, we group them into a single class instead called `divform` as a single selector applying the same utility classes, implemeneted in [layout.css](./src/routes/layout.css) and in [+layout.svelte](./src/routes/+layout.svelte)
+
 - [ ] STEP 2: Make export button work after working with STEP 1
 
 TODO OPTIONAL LAST PRIORITY NEXT STEPS:

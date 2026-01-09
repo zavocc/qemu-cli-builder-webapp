@@ -10,7 +10,7 @@
     } from "../../../stores/configMain.js";
 </script>
 
-<div class="flex flex-row space-x-4">
+<div class="divform">
     <label for="smpConfigType">SMP configuration type</label>
     <select id="smpConfigType" name="smpConfigType" bind:value={$smpConfigType} class="w-32">
         <option value="simplified">Simplified</option>
@@ -21,7 +21,7 @@
 
 <!-- If it's simplified, only show a very simplified setting -->
 {#if $smpConfigType === "simplified"}
-    <div class="flex flex-row space-x-4">
+    <div class="divform">
         <label for="smpOverAll">Total vCPUs</label>
         <input 
             type="number" 
@@ -34,7 +34,7 @@
         />
     </div>
 {:else}
-    <div class="flex flex-row space-x-4">
+    <div class="divform">
         <label for="noCpus">No. of CPUs</label>
         <input 
             type="number" 
@@ -47,7 +47,7 @@
         />
     </div>
 
-    <div class="flex flex-row space-x-4">
+    <div class="divform">
         <label for="noMaxCpus">No. of Maximum CPUs</label>
         <input 
             type="number" 
@@ -60,7 +60,7 @@
         />
     </div>
 
-    <div class="flex flex-row space-x-4">
+    <div class="divform">
         <label for="noCores">No. of Cores</label>
         <input 
             type="number" 
@@ -73,7 +73,7 @@
         />
     </div>
 
-    <div class="flex flex-row space-x-4">
+    <div class="divform">
         <label for="noThreads">No. of Threads</label>
         <input 
             type="number" 
@@ -86,7 +86,7 @@
         />
     </div>
 
-    <div class="flex flex-row space-x-4">
+    <div class="divform">
         <label for="noSockets">No. of Sockets</label>
         <input 
             type="number" 

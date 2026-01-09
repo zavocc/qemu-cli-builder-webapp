@@ -2,7 +2,7 @@
     import { tcgTbSizeToggle, tcgTbSize, tcgMttcgToggle } from "../../../stores/configMain.js";
 </script>
 
-<div class="flex flex-row space-x-4">
+<div class="divform">
     <label for="tb_size_toggle">
         <input 
             type="checkbox" 
@@ -15,7 +15,7 @@
 
 <!-- Check if we have tb_size_toggle set to true -->
 {#if $tcgTbSizeToggle}
-    <div class="flex flex-row space-x-4">
+    <div class="divform">
         <label for="tb_size">TB Size</label>
         <input 
             type="number" 
@@ -29,7 +29,7 @@
     </div>
 {/if}
 
-<div class="flex flex-row space-x-4 items-center">
+<div class="divform items-center">
     <label for="mttcg_toggle" class="flex items-center space-x-2">
         <input 
             type="checkbox" 
@@ -57,4 +57,3 @@
         </div>
     </div>
 </div>
-

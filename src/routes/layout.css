@@ -1,2 +1,7 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+/* Used in form containers such as in Main.svelte, SMPControl.svelte, and TCGOps.svelte */
+.divform {
+  @apply flex flex-row space-x-4;
+}

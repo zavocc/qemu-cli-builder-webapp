@@ -13,12 +13,12 @@
 <div class="flex flex-col space-y-4">
     <h1 class="text-xl">Machine and configuration</h1>
     <!-- Memory -->
-    <div class="flex flex-row space-x-4">
+    <div class="divform">
         <label for="memory">Memory (MB)</label>
         <input type="number" bind:value={$memory} placeholder="Memory in MB" min="128" max="2147483648" step="128" />
     </div>
     <!-- Accelerator  -->
-    <div class="flex flex-row space-x-4">
+    <div class="divform">
         <label for="accel">Acceleration</label>
         <select id="accel" name="accel" bind:value={$accel}>
             <option value="kvm">KVM</option>
@@ -34,7 +34,7 @@
     <!-- CPU -->
     <!-- TODO: CPU flags, etc... For now we give users few choices -->
             
-    <div class="flex flex-row space-x-4">
+    <div class="divform">
         <label for="cpu">CPU</label>
         <select id="cpu" name="cpu" bind:value={$cpu}>
             {#each cpuLists as cpuOption}
@@ -46,7 +46,7 @@
     </div>
 
     <!-- SMP -->
-    <div class="flex flex-row space-x-4">
+    <div class="divform">
     <label for="tb_size_toggle">
         <input 
             type="checkbox" 
